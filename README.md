@@ -8,7 +8,7 @@ The idea behind this plugin is to copy the first item when adding a new item.  W
 
 See demo page for more example such as events and call back functions.
 
-## Differencies ##
+## Differences ##
 
 1. Clearing hidden fields.
 2. Added callback for asking something before remove item. Shold return `true` for processing.
