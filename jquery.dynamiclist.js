@@ -1,5 +1,5 @@
 /**
- * jQuery Dynamic List v 2.0.1
+ * jQuery Dynamic List v 2.0.1-mod
  * Copyright 2012 Ike Lin
  * http://www.apache.org/licenses/LICENSE-2.0.txt
  */
@@ -28,6 +28,7 @@
             maxSize: 10,
             withEvents: false,
             addCallbackFn: null,
+            canRemoveCallbackFn: null,
             removeCallbackFn: null
         }, options);
         
@@ -73,6 +74,10 @@
             var length = list.find("." + settings.itemClass).length;
             var item = alink.parents("." + settings.itemClass + ":first");
 
+            if (settings.canRemoveCallbackFn != null) {
+            	if (!settings.canRemoveCallbackFn(item)) return;
+            }
+
             if (length == settings.minSize)
                 clearItem(item);
             else
@@ -112,7 +117,7 @@
 
         // Clears value from all input text items.
         var clearItem = function(item) {
-            item.find("input[type=text], textarea").val("");
+            item.find("input[type=text], input[type=hidden], textarea").val("");
             item.find("input[type=radio]").attr({checked: false});
             item.find("input[type=checkbox]").attr({checked: false});
         }
