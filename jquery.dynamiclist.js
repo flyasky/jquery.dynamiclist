@@ -124,8 +124,10 @@
         
         var init = function(list) {
            
-            // remove first item's remove link
-            list.find("." + settings.itemClass + ":first " + "." + settings.removeClass).hide()           
+            // remove first item's remove link (if it least)
+	    if (list.find("." + settings.itemClass).length == 1) {
+		list.find("." + settings.itemClass + ":first " + "." + settings.removeClass).hide()
+	    }
            
             // initializes the list
             var length = list.find("." + settings.itemClass).length;
