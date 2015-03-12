@@ -1,4 +1,4 @@
-# jQuery Dynamic List v2.0 #
+# jQuery Dynamic List v2.0 (mod) #
 
 A jQuery plugin that dynamically adds or removes items from a list on the client side and normalizes the list index.
 
@@ -7,6 +7,12 @@ This plugin is useful when data-binding one-to-many relationships.  Frameworks s
 The idea behind this plugin is to copy the first item when adding a new item.  When ever an item is added or removed, the entire list's index is normalized.
 
 See demo page for more example such as events and call back functions.
+
+## Differencies ##
+
+1. Clearing hidden fields.
+2. Added callback for asking something before remove item. Shold return `true` for processing.
+
 
 ## Usage ##
 
@@ -65,3 +71,5 @@ When there are existing rows, example in Grails GSP:
 `addCallbackFn` - Callback function when add is completed.
 
 `removeCallbackFn` - Callback function when remove is completed.
+
+`canRemoveCallbackFn` - Callback function for asking something before remove.
